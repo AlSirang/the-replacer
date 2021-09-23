@@ -47,7 +47,7 @@ export function Web3Provider({ children }) {
     }
   };
 
-  const handleConnectWallet = async () => {
+  const handleConnectWallet = async (web3) => {
     try {
       const addresses = await state.web3.eth.requestAccounts();
       // const networkId = await WEB_3_GLOBAL_VARIABLE.eth.net.getId();a
