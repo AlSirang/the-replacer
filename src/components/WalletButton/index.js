@@ -1,5 +1,6 @@
-import { useContext } from "react/cjs/react.development";
+import { useContext } from "react";
 import { Web3Context } from "../../Web3Context";
+import "./WalletButton.styles.css";
 
 const WalletButton = () => {
   const { state, handleConnectWallet, handleDisconnectWallet } =
@@ -8,9 +9,13 @@ const WalletButton = () => {
   return (
     <>
       {isWalletConnected ? (
-        <button onClick={handleDisconnectWallet}>Disconnect Wallet</button>
+        <button onClick={handleDisconnectWallet} className="disconnect__btn">
+          Disconnect Wallet
+        </button>
       ) : (
-        <button onClick={handleConnectWallet}>Connect Wallet</button>
+        <button onClick={handleConnectWallet} className="connect__btn">
+          Connect Wallet
+        </button>
       )}
     </>
   );

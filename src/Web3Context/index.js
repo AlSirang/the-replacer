@@ -3,11 +3,12 @@ import Web3 from "web3";
 import Reducer from "./reducer";
 import ABI from "./ABI.json";
 
-const CONTRACT_ADDRESS = "0x27C1Ae8cE9a5e4a36a7Db7e88920C4c789Cb8872";
+const CONTRACT_ADDRESS = "0xe134C52fED89e18611950c05d1067794B7404523";
 const initialState = {
   isWalletConnected: false,
   walletAddress: null,
   // balance: null,
+  hasProvider: false,
   isContractInitilized: false,
   contract: null,
   web3: null,
@@ -26,15 +27,21 @@ export function Web3Provider({ children }) {
   const initWeb3 = () => {
     try {
       const PROVIDER = Web3.givenProvider || window.ethereum || window.web3;
-      const web3 = new Web3(PROVIDER);
-      let contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
-      dispatch({
-        type: "InitWeb3",
-        payload: {
-          contract,
-          web3,
-        },
-      });
+      if (PROVIDER) {
+        const web3 = new Web3(PROVIDER);
+        let contract = new web3.eth.Contract(ABI, CONTRACT_ADDRESS);
+        dispatch({
+          type: "InitWeb3",
+          payload: {
+            contract,
+            web3,
+          },
+        });
+      } else {
+        dispatch({
+          type: "InitWeb3Failed",
+        });
+      }
     } catch (err) {
       console.log(err);
     }

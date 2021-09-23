@@ -1,0 +1,27 @@
+.disconnect__btn,
+.connect__btn {
+  color: var(--primaryColor);
+  letter-spacing: 0.5px;
+  padding: 5px calc(10px + 2vmin);
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 400ms var(--animationFunction);
+}
+
+.connect__btn {
+  background-color: #207718;
+}
+.disconnect__btn {
+  background-color: #9e1111;
+}
+
+.connect__btn:hover {
+  background-color: #207718d8;
+}
+
+.disconnect__btn:hover {
+  background-color: #9e1111d7;
+}

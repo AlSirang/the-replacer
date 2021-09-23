@@ -1,20 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 import Header from "./components/Header";
+import NotFound from "./components/NotFound";
 import SendMessage from "./components/SendMessage";
 import ShowMessage from "./components/ShowMessage";
-import { Web3Provider } from "./Web3Context";
+import { Web3Context } from "./Web3Context";
 
 function App() {
+  const { state } = useContext(Web3Context);
+  const { hasProvider } = state;
   return (
-    <Web3Provider>
-      <div className="App">
-        <Header />
-        <SendMessage />
-
-        <ShowMessage />
-      </div>
-    </Web3Provider>
+    <div className="App">
+      <Header />
+      {hasProvider ? (
+        <>
+          <SendMessage />
+          <ShowMessage />
+        </>
+      ) : (
+        <NotFound />
+      )}
+    </div>
   );
 }
 

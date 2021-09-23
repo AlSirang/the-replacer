@@ -1,0 +1,38 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+}
+
+.header__brand {
+  font-size: 25px;
+  font-family: cursive;
+  cursor: default;
+}
+
+.header__button {
+  padding-right: 25px;
+}
+
+@media screen and (max-width: 400px) {
+  .header {
+    padding: 10px 8px;
+  }
+  .header__brand {
+    font-size: calc(10px + 3vmin);
+    word-break: break-all;
+  }
+  .header__button {
+    padding-right: 0px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .header__button {
+    display: none;
+  }
+}

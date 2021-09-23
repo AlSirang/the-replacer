@@ -5,7 +5,16 @@ export function Reducer(state, action) {
         ...state,
         ...action.payload,
         isContractInitilized: true,
+        hasProvider: true,
       };
+    case "InitWeb3Failed":
+      return {
+        ...state,
+        ...action.payload,
+        isContractInitilized: false,
+        hasProvider: false,
+      };
+
     case "ConnectWallet":
       return {
         ...state,
@@ -37,8 +46,6 @@ export function Reducer(state, action) {
         ...state,
         walletAddress: null,
         isWalletConnected: false,
-        isMessageLoaded: false,
-        res: {},
       };
     default:
       return state;
