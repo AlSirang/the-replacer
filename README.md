@@ -12,7 +12,9 @@ Type `npm i` to install required modules.
 
 ## npm start
 
-Type `npm start` to run the web page. Be sure, to first deploy and replace the smart contract address and ABI in [Web3Context](./src/Web3Context ) folder.
+Type `npm start` to run the web page. Before typing `npm start`, deploy the smart contract and update ABI and contract address  in [Web3Context](./src/Web3Context ) folder.
+
+
 ```JavaScript
 const CONTRACT_ADDRESS = "YOUR CONTRACT ADDRESS AFTER DEPLOYMENT";
 ```
