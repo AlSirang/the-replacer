@@ -3,9 +3,9 @@
 A simple dApp where a user can update the state of contract by sending a message.
 
 ## Requirments
-Nodejs
-truffle
-ganache-cli
+* Nodejs
+* truffle
+* ganache-cli
 
 ## npm i
 Type `npm i` to install required modules.
